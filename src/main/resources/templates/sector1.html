@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Sector 1 - Chefs del Restaurante</title>
+</head>
+<body>
+<h2>Sector 1 – Chefs del Restaurante GOURMET</h2>
+
+<!-- Lista de los chefs (los 5 creados en el repositorio) -->
+<ul>
+  <li th:each="chef : ${chefsStack}">
+    Nombre: <span th:text="${chef.nombre}"></span> |
+    Categoría: <span th:text="${chef.categoria}"></span> |
+    Restaurante: <span th:text="${chef.restaurante}"></span>
+  </li>
+</ul>
+
+<h3>Mentor del Equipo</h3>
+<p>Nombre: <span th:text="${mentor.nombre}"></span></p>
+<p>Categoría: <span th:text="${mentor.categoria}"></span></p>
+<p>Restaurante: <span th:text="${mentor.restaurante}"></span></p>
+
+</body>
+</html>

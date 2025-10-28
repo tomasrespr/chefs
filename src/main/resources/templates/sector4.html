@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Sector 4 - Total de Platos Ganadores</title>
+</head>
+<body>
+<h2>Sector 4 – Total de Platos Ganadores por Chef</h2>
+
+<table border="1">
+    <tr>
+        <th>Chef</th>
+        <th>Total de Platos Ganadores</th>
+    </tr>
+    <tr th:each="entry : ${resultados}">
+        <td th:text="${entry.key}"></td>
+        <td th:text="${entry.value}"></td>
+    </tr>
+</table>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sector 3 - Chefs del Restaurante CASERO</title>
+</head>
+<body>
+<h2>Sector 3 – Programación Funcional</h2>
+
+<h3>Chefs que pertenecen al Restaurante CASERO</h3>
+<ul>
+    <li th:each="nombre : ${chefsCaseros}" th:text="${nombre}"></li>
+</ul>
+
+</body>
+</html>

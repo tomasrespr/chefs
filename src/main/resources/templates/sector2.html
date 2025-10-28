@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Sector 2 - Iteradores con Chefs</title>
+</head>
+<body>
+<h2>Sector 2 – Iteradores con Chefs</h2>
+
+<h3>Desde Stack (ListIterator)</h3>
+<ul>
+    <li th:each="texto : ${desdeStack}" th:text="${texto}"></li>
+</ul>
+
+<h3>Desde Deque del Mentor (Iterator)</h3>
+<ul>
+    <li th:each="texto : ${desdeDeque}" th:text="${texto}"></li>
+</ul>
+
+</body>
+</html>
