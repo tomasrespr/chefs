@@ -20,7 +20,6 @@ public class ChefController {
         this.repo = repo;
     }
 
-    // SECTOR 1 -> Mostrar los chefs (punto 1)
     @GetMapping({"/", "/sector1"})
     public String sector1(Model model) {
         Stack<Chef> chefsStack = repo.getChefsStack();
@@ -62,7 +61,6 @@ public class ChefController {
         Stack<Chef> chefsStack = repo.getChefsStack();
         Deque<Chef> dequeChefs = new ArrayDeque<>(chefsStack);
 
-        // Filtramos los chefs del restaurante CASERO
         List<String> chefsCaseros = dequeChefs.stream()
                 .filter(c -> c.getRestaurante() == Restaurante.CASERO)
                 .map(Chef::getNombre)
@@ -76,11 +74,10 @@ public class ChefController {
 
     @GetMapping("/sector4")
     public String sector4(Model model) {
-        // Definir la función: recibe un Chef y devuelve la suma de sus platos ganadores
+
         Function<Chef, Integer> sumarPlatos = (Chef c) ->
                 c.getPlatosGanadores().stream().mapToInt(Integer::intValue).sum();
 
-        // Aplicar la función a todos los chefs
         Stack<Chef> chefsStack = repo.getChefsStack();
         Map<String, Integer> resultados = new LinkedHashMap<>();
 
@@ -95,17 +92,14 @@ public class ChefController {
 
     @GetMapping("/sector5")
     public String sector5(Model model) {
-        // Tomamos un chef de ejemplo (el último del stack, por ejemplo)
+
         Chef ejemplo = repo.getChefsStack().peek();
 
-        // Definimos la función (igual a la del punto 4)
         Function<Chef, Integer> funcion = (Chef c) ->
                 c.getPlatosGanadores().stream().mapToInt(Integer::intValue).sum();
 
-        // Llamamos al método dentro del propio objeto Chef
         int total = ejemplo.verTotalPlatos(funcion);
 
-        // Enviamos datos a la vista
         model.addAttribute("ejemploNombre", ejemplo.getNombre());
         model.addAttribute("ejemploTotal", total);
 
